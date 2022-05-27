@@ -1,0 +1,78 @@
+﻿@model QLTHUETRO_BAOOANH.Models.KHACHHANG
+
+<style>
+    body {
+        background-color: #c9c9c9
+    }
+</style>
+@{
+    ViewBag.Title = "Xóa khách thuê";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string gtinh = "";
+}
+
+<center>
+    <h3 style="color: #ff0000;"> Bạn có chắc chắn muốn xóa thông tin khách thuê này?</h3>
+    <table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;background-color:#fff">
+        <tr>
+            <td style="padding: 20px;">
+                <table cellpadding="2" cellspacing="10">
+                    <caption style="color:black;text-align:center"><b>THÔNG TIN CHI TIẾT</b></caption>
+                    <tr>
+                        <td>Mã khách thuê:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.MaKH)</td>
+                    </tr>
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.HoTen)</td>
+                    </tr>
+                    <tr>
+                        <td>Giới tính:</td>
+                        <td style="padding-left: 10px;">
+                            @{if (Model.GioiTinh == true)
+                                { gtinh = "Nam"; }
+                                else
+                                { gtinh = "Nữ"; }
+                            }
+                            @gtinh
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td style="padding-left: 10px;">@string.Format("{0:dd/MM/yyyy}", Model.NgaySinh)</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.DiachiKH)</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.DienThoaiKH)</td>
+                    </tr>
+                    <tr>
+                        <td>Số CMND:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.CMND)</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>Ảnh khách thuê:</td>
+                        <td style="padding-left: 10px;"><img src="@Url.Content("~/images/people/" + Model.AnhKH)" width="100px" /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="margin-top:20px;">
+            <input style="background-color:#212925;color:#ffd800" type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+
+</center>

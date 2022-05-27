@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_THUETRO_BOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="UserAdmin" />
+    </Key>
+    <Property Name="UserAdmin" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PassAdmin" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BIENBANSUCO">
+    <Key>
+      <PropertyRef Name="SoBB" />
+    </Key>
+    <Property Name="SoBB" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayLap" Type="date" />
+    <Property Name="LyDo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HinhThucXuLy" Type="nvarchar" MaxLength="1000" />
+    <Property Name="MaSC" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaPT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DATPHONG">
+    <Key>
+      <PropertyRef Name="MaDP" />
+    </Key>
+    <Property Name="MaDP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayDat" Type="date" />
+    <Property Name="MaPT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOPDONG">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayTaoHD" Type="date" />
+    <Property Name="TienCoc" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaPT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="DiachiKH" Type="nvarchar" MaxLength="200" />
+    <Property Name="DienThoaiKH" Type="varchar" MaxLength="50" />
+    <Property Name="CMND" Type="varchar" MaxLength="20" />
+    <Property Name="AnhKH" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="MaPT" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOAIPHONGTRO">
+    <Key>
+      <PropertyRef Name="MaLPT" />
+    </Key>
+    <Property Name="MaLPT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenLPT" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTenNV" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NgaySinhNV" Type="date" />
+    <Property Name="GioiTinhNV" Type="bit" />
+    <Property Name="DiaChiNV" Type="nvarchar" MaxLength="100" />
+    <Property Name="SdtNV" Type="varchar" MaxLength="15" />
+    <Property Name="SoCMND" Type="varchar" MaxLength="50" />
+    <Property Name="AnhNV" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PHIEUTHUTIEN">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+    </Key>
+    <Property Name="SoPhieu" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayThu" Type="date" />
+    <Property Name="ThangCanThu" Type="nvarchar" MaxLength="50" />
+    <Property Name="TienThue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TienDien" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TienNuoc" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaKH" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaPT" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHONGTRO">
+    <Key>
+      <PropertyRef Name="MaPT" />
+    </Key>
+    <Property Name="MaPT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DienTich" Type="nvarchar" MaxLength="100" />
+    <Property Name="TiecIch" Type="nvarchar" MaxLength="200" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayCapNhat" Type="date" />
+    <Property Name="AnhPT" Type="varchar" MaxLength="100" />
+    <Property Name="MaLPT" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUCO">
+    <Key>
+      <PropertyRef Name="MaSC" />
+    </Key>
+    <Property Name="MaSC" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenSC" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="char" MaxLength="20" />
+    <Property Name="password" Type="char" MaxLength="20" />
+    <Property Name="Admin" Type="bit" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__BIENBANSUC__MaKH__679450C0">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BIENBANSUCO" Type="Self.BIENBANSUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="BIENBANSUCO">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIENBANSUC__MaNV__66A02C87">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="BIENBANSUCO" Type="Self.BIENBANSUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="BIENBANSUCO">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIENBANSUC__MaPT__65AC084E">
+    <End Role="PHONGTRO" Type="Self.PHONGTRO" Multiplicity="1" />
+    <End Role="BIENBANSUCO" Type="Self.BIENBANSUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTRO">
+        <PropertyRef Name="MaPT" />
+      </Principal>
+      <Dependent Role="BIENBANSUCO">
+        <PropertyRef Name="MaPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BIENBANSUC__MaSC__64B7E415">
+    <End Role="SUCO" Type="Self.SUCO" Multiplicity="1" />
+    <End Role="BIENBANSUCO" Type="Self.BIENBANSUCO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUCO">
+        <PropertyRef Name="MaSC" />
+      </Principal>
+      <Dependent Role="BIENBANSUCO">
+        <PropertyRef Name="MaSC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DATPHONG__MaKH__54817C4C">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DATPHONG" Type="Self.DATPHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DATPHONG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DATPHONG__MaPT__538D5813">
+    <End Role="PHONGTRO" Type="Self.PHONGTRO" Multiplicity="1" />
+    <End Role="DATPHONG" Type="Self.DATPHONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTRO">
+        <PropertyRef Name="MaPT" />
+      </Principal>
+      <Dependent Role="DATPHONG">
+        <PropertyRef Name="MaPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__MaKH__5A3A55A2">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__MaNV__59463169">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOPDONG__MaPT__58520D30">
+    <End Role="PHONGTRO" Type="Self.PHONGTRO" Multiplicity="1" />
+    <End Role="HOPDONG" Type="Self.HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTRO">
+        <PropertyRef Name="MaPT" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="MaPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KHACHHANG__MaPT__50B0EB68">
+    <End Role="PHONGTRO" Type="Self.PHONGTRO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTRO">
+        <PropertyRef Name="MaPT" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="MaPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHUTI__MaKH__5FF32EF8">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHUTI__MaNV__60E75331">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHUTI__MaPT__61DB776A">
+    <End Role="PHONGTRO" Type="Self.PHONGTRO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGTRO">
+        <PropertyRef Name="MaPT" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHONGTRO__MaLPT__78F3E6EC">
+    <End Role="LOAIPHONGTRO" Type="Self.LOAIPHONGTRO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PHONGTRO" Type="Self.PHONGTRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIPHONGTRO">
+        <PropertyRef Name="MaLPT" />
+      </Principal>
+      <Dependent Role="PHONGTRO">
+        <PropertyRef Name="MaLPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QL_THUETRO_BOModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BIENBANSUCO" EntityType="Self.BIENBANSUCO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DATPHONG" EntityType="Self.DATPHONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOPDONG" EntityType="Self.HOPDONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIPHONGTRO" EntityType="Self.LOAIPHONGTRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUTHUTIEN" EntityType="Self.PHIEUTHUTIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHONGTRO" EntityType="Self.PHONGTRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUCO" EntityType="Self.SUCO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BIENBANSUC__MaKH__679450C0" Association="Self.FK__BIENBANSUC__MaKH__679450C0">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="BIENBANSUCO" EntitySet="BIENBANSUCO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIENBANSUC__MaNV__66A02C87" Association="Self.FK__BIENBANSUC__MaNV__66A02C87">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="BIENBANSUCO" EntitySet="BIENBANSUCO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIENBANSUC__MaPT__65AC084E" Association="Self.FK__BIENBANSUC__MaPT__65AC084E">
+      <End Role="PHONGTRO" EntitySet="PHONGTRO" />
+      <End Role="BIENBANSUCO" EntitySet="BIENBANSUCO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BIENBANSUC__MaSC__64B7E415" Association="Self.FK__BIENBANSUC__MaSC__64B7E415">
+      <End Role="SUCO" EntitySet="SUCO" />
+      <End Role="BIENBANSUCO" EntitySet="BIENBANSUCO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DATPHONG__MaKH__54817C4C" Association="Self.FK__DATPHONG__MaKH__54817C4C">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DATPHONG" EntitySet="DATPHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DATPHONG__MaPT__538D5813" Association="Self.FK__DATPHONG__MaPT__538D5813">
+      <End Role="PHONGTRO" EntitySet="PHONGTRO" />
+      <End Role="DATPHONG" EntitySet="DATPHONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__MaKH__5A3A55A2" Association="Self.FK__HOPDONG__MaKH__5A3A55A2">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="HOPDONG" EntitySet="HOPDONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__MaNV__59463169" Association="Self.FK__HOPDONG__MaNV__59463169">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="HOPDONG" EntitySet="HOPDONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOPDONG__MaPT__58520D30" Association="Self.FK__HOPDONG__MaPT__58520D30">
+      <End Role="PHONGTRO" EntitySet="PHONGTRO" />
+      <End Role="HOPDONG" EntitySet="HOPDONG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KHACHHANG__MaPT__50B0EB68" Association="Self.FK__KHACHHANG__MaPT__50B0EB68">
+      <End Role="PHONGTRO" EntitySet="PHONGTRO" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHUTI__MaKH__5FF32EF8" Association="Self.FK__PHIEUTHUTI__MaKH__5FF32EF8">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHUTI__MaNV__60E75331" Association="Self.FK__PHIEUTHUTI__MaNV__60E75331">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHUTI__MaPT__61DB776A" Association="Self.FK__PHIEUTHUTI__MaPT__61DB776A">
+      <End Role="PHONGTRO" EntitySet="PHONGTRO" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHONGTRO__MaLPT__78F3E6EC" Association="Self.FK__PHONGTRO__MaLPT__78F3E6EC">
+      <End Role="LOAIPHONGTRO" EntitySet="LOAIPHONGTRO" />
+      <End Role="PHONGTRO" EntitySet="PHONGTRO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

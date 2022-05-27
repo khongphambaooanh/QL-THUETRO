@@ -1,0 +1,86 @@
+﻿@using QLTHUETRO_BAOOANH.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<QLTHUETRO_BAOOANH.Models.PHIEUTHUTIEN>
+
+@*@model IEnumerable<QLTHUETRO_BAOOANH.Models.PHIEUTHUTIEN>*@
+
+@{
+    ViewBag.Title = "Danh sách phiếu thu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+
+}
+
+<h2>DANH SÁCH PHIẾU THU TIỀN MỖI THÁNG</h2>
+
+<p>
+    @Html.ActionLink("Tạo phiếu mới", "Create")
+</p>
+<table class="table" border="1">
+    <tr style="background-color: #212925; color: #ffd800">
+        <th>STT</th>
+        <th style="text-align: center">Số phiếu</th>
+        <th style="text-align: center">Ngày thu</th>
+        <th style="text-align: center">Tháng cần thu</th>
+        <th style="text-align: center">Tiền phòng</th>
+        <th style="text-align: center">Tiền điện</th>
+        <th style="text-align: center">Tiền nước</th>
+        <th style="text-align: center">Trạng thái phiếu</th>
+        <th style="text-align: center">Khách được thu</th>
+        <th style="text-align: center">Phòng được thu</th>
+        <th style="text-align: center">Người thu</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @{i++;}
+        @i
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoPhieu)
+    </td>
+    <td>
+        @string.Format("{0:dd/MM/yyyy}", item.NgayThu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ThangCanThu)
+    </td>
+    <td>
+        @string.Format("{0:0,0}", item.TienThue) đ
+    </td>
+    <td>
+        @string.Format("{0:0,0}", item.TienDien) đ
+    </td>
+    <td>
+        @string.Format("{0:0,0}", item.TienNuoc) đ
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TrangThai)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PHONGTRO.MaPT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NHANVIEN.HoTenNV)
+    </td>
+
+    <td>
+        <a href="@Url.Action("Edit",new { id = item.SoPhieu})" class="edit-btn"><abbr title="Cập nhật dữ liệu">  <img src="~/images/icons/edit.png" width="15" height="15" /></abbr></a>
+        @*@Html.ActionLink("Details", "Details", new { id = item.SoPhieu }) |*@
+        <a href="@Url.Action("Delete",new { id = item.SoPhieu})" class="edit-btn"><abbr title="Xóa dữ liệu"><img src="~/images/icons/delete.png" width="15" height="15" /></abbr></a>
+    </td>
+</tr>
+    }
+
+</table>
+@*tạo phân trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>

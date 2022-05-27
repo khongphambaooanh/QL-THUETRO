@@ -1,0 +1,36 @@
+﻿@model QLTHUETRO_BAOOANH.Models.PHONGTRO
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="row justify-content-md-start">
+    <div class="col-md-5">
+        <div class="card">
+            <h2 class="card-header">
+                Xin chào!
+            </h2>
+            <div class="card-body" style="border: 1px solid #808080;padding:20px">
+                @if (Session["FullName"] != null)
+                {
+                    <p>Tên: @Session["FullName"].ToString()</p>
+                    <p>Email: @Session["Email"].ToString()</p>
+                    <a href="@Url.Action("Logout","User_60131724")" class="btn btn-warning" style="background-color:#291e1e;color:#ffd800">Đăng xuất</a>
+                }
+            </div>
+            <h4>
+                @Html.ActionLink("Tiếp tục đặt phòng", "../Mail_60131724/Index", new { @class = "a" })
+                @*@foreach (var dp in Model)
+                {
+                    <a>@Url.Action("Tiếp tục đặt phòng", "Edit", new { id = dp.MaPT }) </a>
+                }*@
+
+            </h4>
+        </div>
+
+    </div>
+</div>
+
+

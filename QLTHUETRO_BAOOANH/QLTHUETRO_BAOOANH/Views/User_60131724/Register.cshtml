@@ -1,0 +1,63 @@
+﻿@model QLTHUETRO_BAOOANH.Models.User
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="row justify-content-md-center">
+    <h3 class="card-header" style="margin-left:10px">
+        Đăng ký tài khoản
+    </h3>
+    <div class="col-md-5">
+        @using (Html.BeginForm("Register", "User_60131724", FormMethod.Post))
+        {
+            //@Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Firstname)
+                        @Html.TextBoxFor(m => m.Firstname, "", new { @class = "form-control", @placeholder = "First Name" })
+                        @Html.ValidationMessageFor(m => m.Firstname, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Lastname)
+                        @Html.TextBoxFor(m => m.Lastname, "", new { @class = "form-control", @placeholder = "Last Name" })
+                        @Html.ValidationMessageFor(m => m.Lastname, "", new { @class = "badge badge-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="badge badge-danger">@ViewBag.error</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                    </div>
+                    @*<div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confim Password" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
+                        </div>*@
+                    <div class="form-group">
+                        <input style="background-color:#272222;color:#ffd800" type="submit" name="submit" class="btn btn-danger" value="Đăng ký" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<div>
+    Nếu đã có tài khoản trước đó, vui lòng đăng nhập:
+    @Html.ActionLink("Đăng nhập", "Login")
+</div>
+
+

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QLTHUETRO_BAOOANH.Models.PHONGTRO>
+
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+    @using (Html.BeginForm("KQTimKiem", "PHONGTRO_60131724", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div style="margin-bottom:40px">
+            <div class="tk">
+                <input type="text" placeholder="Bạn muốn căn phòng như thế nào?" name="sTuKhoa" style="width:500px;height:40px;padding-bottom:4px;" />
+                <input type="submit" value="Tìm kiếm" style="background-color: #808080; border: none; color: #ffc800; margin-top: 15px; padding: 0px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; cursor: pointer; height: 40px; border-radius: 3px" />
+            </div>
+        </div>
+    }
+
+<div class="row">
+    @foreach (var p in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail" style="height:340px">
+
+                <a href="@Url.Action("Details", "PHONGTRO_60131724", new { id = p.MaPT })">
+                    <img alt="@p.TiecIch" src="~/images/phongtro/@p.AnhPT" width="200" style="height:250px" />
+                    <span>@p.TiecIch</span>
+                    <br />
+                    <p>@p.DienTich</p>
+                </a>
+                <div class="ratings" style="padding-top:20px">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,63 @@
+﻿@using QLTHUETRO_BAOOANH.Models;
+
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="color:rgb(128 128 128);text-align:center;margin-bottom:18px">THÔNG TIN ĐƠN HÀNG</h2>
+
+
+<div class="col-sm-6 col-lg-6 col-md-6">
+    <div style="display:flex">
+        <b style="font-size:20px">Mã phòng trọ:</b>
+        &nbsp;
+        <p style="text-align: justify; font-size: 17px"> @Model.MaPT</p>
+    </div>
+    <div style="display:flex">
+        <b style="font-size:20px">Diện tích:</b>
+        &nbsp;
+        <p style="text-align: justify; font-size: 17px"> @Model.DienTich</p>
+    </div>
+    <div style="display:flex">
+        <b style="font-size:20px">Tiện ích:</b>
+        &nbsp;
+        <p style="text-align:justify; font-size: 17px">@Model.TiecIch</p>
+
+    </div>
+    <div style="display:flex">
+        <b style="font-size:20px">Loại phòng:</b>
+        &nbsp;
+        <p style="text-align:justify; font-size: 17px">@Model.LOAIPHONGTRO.TenLPT</p>
+    </div>
+    <div style="display:flex">
+        <b style="font-size:20px">Trạng thái:</b>
+        &nbsp;
+        <p style="text-align:justify; font-size: 17px">@Model.TrangThai</p>
+    </div>
+    <div style="display:flex">
+        <b style="font-size:20px">Ngày đăng tải:</b>
+        &nbsp;
+        <p style="text-align:justify; font-size: 17px"> @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) </p>
+    </div>
+    <div style="margin-top: 10px">
+        <b style="font-size: 20px; color: #ffc800; font-size: 20px;">
+            Giá thuê: @string.Format("{0:0,0}", Model.DonGia) VND
+        </b>
+    </div>
+    @*<div style="margin-top:40px">
+            <a href="@Url.Action("CheckOut", "DATPHONG_60131724", new { id = @Model.MaPT})" class="dathang">
+                <b>ĐẶT PHÒNG NGAY</b>
+            </a>
+        </div>*@
+</div>
+
+<div class="col-sm-12 col-lg-12 col-md-12">
+    <p style="margin-top:5px;margin-bottom:100px">
+        <br />
+        |
+        @Html.ActionLink("Trở về xem phòng", "danhsach")
+    </p>
+</div>
+
+

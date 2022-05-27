@@ -1,0 +1,63 @@
+﻿@model QLTHUETRO_BAOOANH.Models.PHONGTRO
+
+<style>
+    body {
+        background-color: #c9c9c9
+    }
+</style>
+
+@{
+    ViewBag.Title = "Xóa phòng trọ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<center>
+    <h3 style="color: #ff0000;"> Bạn có chắc chắn muốn xóa thông tin phòng này?</h3>
+    <table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;background-color:#fff">
+        <tr>
+            <td style="padding: 20px;">
+                <table cellpadding="2" cellspacing="10">
+                    <caption style="color:black;text-align:center"><b>THÔNG TIN CHI TIẾT PHÒNG TRỌ</b></caption>
+                    <tr>
+                        <td>Mã phòng:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.MaPT)</td>
+                    </tr>
+                    <tr>
+                        <td>Diện tích:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.DienTich)</td>
+                    </tr>
+                    <tr>
+                        <td>Tiện ích:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.TiecIch)
+                    </tr>
+                    <tr>
+                        <td>Trạng thái:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.TrangThai)</td>
+                    </tr>
+                    <tr>
+                        <td>Loại phòng:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.LOAIPHONGTRO.TenLPT)</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày cập nhật:</td>
+                        <td style="padding-left: 10px;">@string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)</td>
+                    </tr>
+                    <tr>
+                        <td>Ảnh phòng trọ:</td>
+                        <td style="padding-left: 10px;"><img src="@Url.Content("~/images/phongtro/" + Model.AnhPT)" width="120px" /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="margin-top:20px;">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "phongtro")
+        </div>
+    }
+
+</center>

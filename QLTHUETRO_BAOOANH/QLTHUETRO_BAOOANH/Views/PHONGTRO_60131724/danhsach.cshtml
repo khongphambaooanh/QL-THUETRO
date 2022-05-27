@@ -1,0 +1,57 @@
+﻿@using QLTHUETRO_BAOOANH.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<PHONGTRO>
+
+@{
+    ViewBag.Title = "Danh mục phòng trọ";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<h2 style="color:black;text-align:center;">DANH MỤC PHÒNG</h2>
+
+@using (Html.BeginForm("KQTimKiem", "PHONGTRO_60131724", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div style="margin-bottom:40px;text-align:center">
+        <div class="tk">
+            <input type="text" placeholder="Bạn muốn căn phòng như thế nào?" name="sTuKhoa" style="width:500px;height:40px;padding-bottom:4px;" />
+            <input type="submit" value="Tìm kiếm" style="background-color: #212925; border: none; color: #ffc800; margin-top: 15px; padding: 0px 10px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; cursor: pointer; height: 40px; border-radius: 3px" />
+        </div>
+    </div>
+}
+<div class="row">
+    @foreach (var p in Model)
+    {
+        
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail" style="height:340px">
+
+                <a href="@Url.Action("Details", "PHONGTRO_60131724", new { id = p.MaPT })">
+                    <img alt="@p.TiecIch" src="~/images/phongtro/@p.AnhPT" width="200" style="height:250px" />
+                    <span>@p.TiecIch</span>
+                    <br />
+                    <p>@p.DienTich</p>
+                </a>
+                <div class="ratings" style="padding-top:20px">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+@*tạo phân trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("danhsach", new { page = page }))
+</div>
+

@@ -1,0 +1,26 @@
+﻿@model QLTHUETRO_BAOOANH.Models.PHONGTRO
+
+@{
+    ViewBag.Title = "Điền form đặt phòng";
+    Layout = "~/Views/Shared/_LayoutMail.cshtml";
+}
+
+<h2>XIN VUI LÒNG ĐIỀN ĐẦY ĐỦ THÔNG TIN TRƯỚC KHI ĐẶT PHÒNG!</h2>
+
+<p><i>*Lưu ý:</i> <br/>
+    Khi quý khách đã xác nhận đặt phòng, chúng tôi sẽ gửi thông báo về Email của quý khách <br />
+    Vui lòng kiểm tra hộp thư Email của mình và đến trực tiếp để nhận phòng <br/>
+    Trong vòng 3 ngày kể từ khi đặt phòng, nếu quý khách không đến thì phòng đã đặt sẽ được hủy. Xin cám ơn!
+    </p>
+<form method="post">
+    <div>Email:<input type="email" name="From" /></div>
+    <div>Mật khẩu: <input type="password" name="Password" /></div>
+    <div>Gửi đến email: <input placeholder="oanhkhong.090900@gmail.com" type="email" name="To" /></div>
+    <div>Tiêu đề: <input placeholder="" type="text" name="Subject" /></div>
+    <div>Thông tin cá nhân: <input type="text" name="Body" /></div>
+    <div><input type="submit" value="Xác nhận đặt phòng" /></div>
+</form>
+@Html.ActionLink("Trở về", "Details")
+
+
+

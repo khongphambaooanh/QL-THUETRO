@@ -1,0 +1,72 @@
+﻿@*@using QLTHUETRO_BAOOANH.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<QLTHUETRO_BAOOANH.Models.HOPDONG>*@
+
+@model IEnumerable<QLTHUETRO_BAOOANH.Models.HOPDONG>
+
+@{
+    ViewBag.Title = "Danh sách hợp đồng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+}
+
+<h2><i class="fa fa-book" aria-hidden="true"></i>DANH SÁCH HỢP ĐỒNG</h2>
+
+<p>
+    @Html.ActionLink("Lập hợp đồng mới", "Create")
+</p>
+<table class="table" border="1">
+    <tr style="background-color: #212925; color: #ffd800">
+        <th>STT</th>
+        <th style="text-align: center">Số hợp đồng</th>
+        <th style="text-align: center">Ngày lập</th>
+        <th style="text-align: center">Tiền đã cọc</th>
+        <th style="text-align: center">Ghi chú</th>
+        <th style="text-align: center">Khách hàng</th>
+        <th style="text-align: center">Phòng trọ</th>
+        <th style="text-align: center">Người lập</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHD)
+            </td>
+            <td>
+                @string.Format("{0:dd/MM/yyyy}", item.NgayTaoHD)
+            </td>
+            <td>
+                @string.Format("{0:0,0}", item.TienCoc) đ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHONGTRO.MaPT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHANVIEN.HoTenNV)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit",new { id = item.MaHD})" class="edit-btn"><abbr title="Cập nhật dữ liệu">  <img src="~/images/icons/edit.png" width="15" height="15" /></abbr></a>
+                <a href="@Url.Action("Delete",new { id = item.MaHD})" class="edit-btn"><abbr title="Xóa dữ liệu"><img src="~/images/icons/delete.png" width="15" height="15" /></abbr></a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*tạo phân trang*@
+@*Trang @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>*@

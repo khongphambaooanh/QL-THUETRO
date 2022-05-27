@@ -1,0 +1,84 @@
+﻿@using QLTHUETRO_BAOOANH.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<QLTHUETRO_BAOOANH.Models.PHONGTRO>
+
+@{
+    ViewBag.Title = "Quản lý phòng trọ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //var grid = new WebGrid(Model, canPage: true, defaultSort: "MaPT", rowsPerPage: 2);
+    int i = 0;
+}
+
+<h2>THÔNG TIN PHÒNG ĐÃ CHO THUÊ</h2>
+
+<p>
+    @*@Html.ActionLink("Thêm phòng trọ mới", "Create")*@
+    @Html.ActionLink("Thêm phòng trọ mới", "../PHONGTRO_60131724/Create", new { @class = "a" })
+</p>
+
+<table class="table" border="1">
+    <tr style="background-color: #212925; color: #ffd800">
+        <th>STT</th>
+        <th style="text-align: center">Mã phòng</th>
+        <th style="text-align: center">Diện tích</th>
+        <th style="text-align: center">Tiện ích</th>
+        <th style="text-align: center">Giá phòng</th>
+        <th style="text-align: center">Trạng thái</th>
+        <th style="text-align: center">Ảnh minh họa</th>
+        <th style="text-align: center">Loại phòng</th>
+        <th style="text-align: center">Ngày cập nhật</th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienTich)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TiecIch)
+            </td>
+            <td>
+                @string.Format("{0:0,0}", item.DonGia)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.MoTa)*@
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                <img src="@Url.Content("~/images/phongtro/" + item.AnhPT)" width="130px" height="90px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAIPHONGTRO.TenLPT)
+            </td>
+            <td>
+                @string.Format("{0:dd/MM/yyyy}", item.NgayCapNhat)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaPT }) |
+                @*@Html.ActionLink("Chi tiết", "Details", new { id = item.MaSach }) |*@
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaPT })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*tạo phân trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("phongtro", new { page = page }))
+</div>
+
+<div style="margin-top: -12px; font-size: 14px; padding: 5px; " >
+    @Html.ActionLink("Trở lại", "Index")
+</div>

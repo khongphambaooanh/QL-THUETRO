@@ -1,0 +1,43 @@
+﻿@model QLTHUETRO_BAOOANH.Models.SUCO
+
+@{
+    ViewBag.Title = "Thêm sự cố";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<center><h2>THÊM SỰ CỐ MỚI</h2></center>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="margin-left:250px">
+            @Html.LabelFor(model => model.MaSC,"Mã sự cố", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.MaSC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaSC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-left:250px">
+            @Html.LabelFor(model => model.TenSC,"Tên sự cố", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.TenSC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenSC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-left:250px">
+            <div class="col-md-offset-2 col-md-5">
+                <input style="background-color:#212925;color:#ffd800" type="submit" value="Thêm mới" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="margin-left:420px">
+    @Html.ActionLink("Quay lại", "Index")
+</div>

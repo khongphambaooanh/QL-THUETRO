@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập dành cho Admin</title>
+    @Styles.Render("~/Content/css")
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css" />
+    <!--===============================================================================================-->    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/util.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/main.css"  />
+    <!--===============================================================================================-->
+</head>
+<body style="background-color: #212529">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <div class="login100-form-title" style=" background-image: url('../../images/bg-01.jpg')">
+                        <span class="login100-form-title-1">
+                            Trang dành cho Admin
+                        </span>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="background-color:#d8d5d5">
+                            <h3 class="panel-title">Vui lòng đăng nhập!</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="/TaiKhoan/Login" method="post" style="margin:auto">
+                                <div style="color:red">
+                                    <h4>@ViewBag.Thongbao</h4>
+                                </div>
+
+                                <div class="form-group">
+                                    <label style="font-size:17px">Username:</label>
+                                    <input type="Text" class="form-control" name="username" id="username" />
+                                    <p style="color:red">@ViewData["Loi1"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-size:17px">Password:</label>
+                                    <input type="password" class="form-control" name="password" id="matkhau" />
+                                    <p style="color:red">@ViewData["Loi2"]</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <input style="margin-bottom:10px;font-size:17px" type="checkbox" name="ghinho" /> Ghi nhớ tài khoản <br />
+                                    <button style="background-color:#ffc800;font-size:17px;color:#000;width:130px;height:40px;border:none" type="submit" class="btn btn-primary">Đăng nhập</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <p style="text-align:center;font-size:17px;margin-bottom:10px">@Html.ActionLink("Trở về", "../Trangchu_60131724/Index", new { @class = "a" })</p>
+
+                </div>
+            </div>
+        </div>
+
+        <!--===============================================================================================-->
+        <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/vendor/bootstrap/js/popper.js"></script>
+        <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/vendor/select2/select2.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/vendor/daterangepicker/moment.min.js"></script>
+        <script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/vendor/countdowntime/countdowntime.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Scripts/main.js"></script>
+
+    }
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bbf4171e521444abdd8afd2f84eba17" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.BIENBANSUCO" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.DATPHONG" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.HOPDONG" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.KHACHHANG" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.LOAIPHONGTRO" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.NHANVIEN" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.PHIEUTHUTIEN" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.PHONGTRO" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.SUCO" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_THUETRO_BOModel.User" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__BIENBANSUC__MaKH__679450C0" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__BIENBANSUC__MaNV__66A02C87" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__BIENBANSUC__MaPT__65AC084E" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__BIENBANSUC__MaSC__64B7E415" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__DATPHONG__MaKH__54817C4C" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__DATPHONG__MaPT__538D5813" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__HOPDONG__MaKH__5A3A55A2" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__HOPDONG__MaNV__59463169" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__HOPDONG__MaPT__58520D30" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__KHACHHANG__MaPT__50B0EB68" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__PHIEUTHUTI__MaKH__5FF32EF8" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__PHONGTRO__MaLPT__78F3E6EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__PHIEUTHUTI__MaNV__60E75331" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_THUETRO_BOModel.FK__PHIEUTHUTI__MaPT__61DB776A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

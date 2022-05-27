@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QLTHUETRO_BAOOANH.Models.PHONGTRO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutChinh.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DienTich)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiecIch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOAIPHONGTRO.TenLPT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienTich)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiecIch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOAIPHONGTRO.TenLPT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaPT }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaPT }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaPT })
+        </td>
+    </tr>
+}
+
+</table>

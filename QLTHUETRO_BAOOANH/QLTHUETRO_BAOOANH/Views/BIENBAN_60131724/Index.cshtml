@@ -1,0 +1,68 @@
+﻿@model IEnumerable<QLTHUETRO_BAOOANH.Models.BIENBANSUCO>
+
+@{
+    ViewBag.Title = "Quản lý biên bản";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+}
+
+<h2>DANH SÁCH BIÊN BẢN XỬ LÝ SỰ CỐ</h2>
+
+<p>
+    @Html.ActionLink("Lập biên bản mới", "Create")
+</p>
+<table class="table" border="1">
+    <tr style="background-color: #212925; color: #ffd800">
+        <th>STT</th>
+        <th style="text-align: center">Số biên bản</th>
+        <th style="text-align: center">Ngày lập</th>
+        <th style="text-align: center">Lý do</th>
+        <th style="text-align: center">Loại sự cố</th>
+        <th style="text-align: center">Hình thức xử lý</th>
+        <th style="text-align: center">Khách hàng</th>
+        <th style="text-align: center">Phòng trọ</th>
+        <th style="text-align: center">Người lập</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @{i++;}
+        @i
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoBB)
+    </td>
+    <td>
+        @string.Format("{0:dd/MM/yyyy}", item.NgayLap)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LyDo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SUCO.TenSC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HinhThucXuLy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PHONGTRO.MaPT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NHANVIEN.HoTenNV)
+    </td>
+    <td>
+        <a href="@Url.Action("Edit",new { id = item.SoBB})" class="edit-btn"><abbr title="Cập nhật dữ liệu">  <img src="~/images/icons/edit.png" width="15" height="15" /></abbr></a>
+        <a href="@Url.Action("Delete",new { id = item.SoBB})" class="edit-btn"><abbr title="Xóa dữ liệu"><img src="~/images/icons/delete.png" width="15" height="15" /></abbr></a>
+    </td>
+</tr>
+}
+
+</table>
+<p>
+   @Html.ActionLink("Quay về danh sách sự cố", "../SUCO_60131724/Index", new { @class = "a" })
+</p>

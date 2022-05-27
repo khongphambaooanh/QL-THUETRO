@@ -1,0 +1,97 @@
+﻿@model QLTHUETRO_BAOOANH.Models.BIENBANSUCO
+
+@{
+    ViewBag.Title = "Sửa biên bản";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<center><h2>CHỈNH SỬA THÔNG TIN BIÊN BẢN</h2></center>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.SoBB)
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.SoBB, "Số biên bản", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.SoBB, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SoBB, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.NgayLap, "Ngày lập", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            Ngày lập cũ:
+            @string.Format("{0:dd/MM/yyyy}", Model.NgayLap)
+            <br />
+            Chọn ngày mới:
+            <input type="date" name="Ngaylap" />
+            @Html.ValidationMessageFor(model => model.NgayLap, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.LyDo, "Lý do", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.LyDo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LyDo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.HinhThucXuLy, "Hình thức xử lý", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.HinhThucXuLy, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HinhThucXuLy, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.MaSC, "Loại sự cố", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.DropDownList("MaSC", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaSC, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.MaPT, "Mã phòng trọ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.DropDownList("MaPT", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaPT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.MaNV, "Nhân viên", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.DropDownList("MaNV", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.MaKH, "Khách hàng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.DropDownList("MaKH", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        <div class="col-md-offset-2 col-md-5">
+            <input style="background-color:#212925;color:#ffd800" type="submit" value="Lưu thay đổi" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div style="margin-left:420px">
+    @Html.ActionLink("Quay lại", "Index")
+</div>

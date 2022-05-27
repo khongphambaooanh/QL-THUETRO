@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QLTHUETRO_BAOOANH.Models.DATPHONG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHACHHANG.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHONGTRO.DienTich)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHONGTRO.DienTich)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaDP }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaDP }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaDP })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,110 @@
+﻿@model QLTHUETRO_BAOOANH.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Thêm khách thuê mới";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<center><h2>THÊM MỚI KHÁCH THUÊ</h2></center>
+
+@using (Html.BeginForm("Create", "KHACHHANG_60131724", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.MaKH, "Mã khách", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.HoTen, "Họ tên", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.NgaySinh, "Ngày sinh", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            <input type="date" name="Ngaysinh" />
+            @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.GioiTinh, "Giới tính", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            <div class="checkbox">
+                Nam @Html.RadioButtonFor(model => model.GioiTinh, "True", new { @checked = "checked" }) &nbsp;
+                Nữ @Html.RadioButtonFor(model => model.GioiTinh, "False")
+                @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.DiachiKH, "Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.DiachiKH, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DiachiKH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.DienThoaiKH, "Số điện thoại", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.DienThoaiKH, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DienThoaiKH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.CMND, "Số CMND", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.AnhKH, "Ảnh khách", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            <input type="file" name="AnhKH" accept="images/*" required />
+            @Html.ValidationMessageFor(model => model.AnhKH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        @Html.LabelFor(model => model.MaPT, "Loại phòng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.DropDownList("MaPT", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaPT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-left:250px">
+        <div class="col-md-offset-2 col-md-5">
+            <input style="background-color:#212925;color:#ffd800" type="submit" value="Thêm mới" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div style="margin-left:420px">
+    @Html.ActionLink("Trở về", "Index")
+</div>

@@ -1,0 +1,51 @@
+﻿@using QLTHUETRO_BAOOANH.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<QLTHUETRO_BAOOANH.Models.SUCO>
+
+@*@model IEnumerable<QLTHUETRO_BAOOANH.Models.SUCO>*@
+
+@{
+    ViewBag.Title = "Quản lý sự cố";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+}
+
+<h2>QUẢN LÝ SỰ CỐ</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create") | @Html.ActionLink("Danh mục quản lý biên bản", "../BIENBAN_60131724/Index", new { @class = "a" })
+</p>
+<table class="table" border="1">
+    <tr style="background-color: #212925; color: #ffd800">
+        <th>STT</th>
+        <th style="text-align: center">Mã sự cố</th>
+        <th style="text-align: center">Tên sự cố</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @{i++;}
+        @i
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaSC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenSC)
+    </td>
+    <td>
+        <a href="@Url.Action("Edit",new { id = item.MaSC})" class="edit-btn"><abbr title="Cập nhật dữ liệu">  <img src="~/images/icons/edit.png" width="20" height="20" /></abbr></a>
+        <a href="@Url.Action("Delete",new { id = item.MaSC})" class="edit-btn"><abbr title="Xóa dữ liệu"><img src="~/images/icons/delete.png" width="20" height="20" /></abbr></a>
+    </td>
+</tr>
+    }
+
+</table>
+@*tạo phân trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<QLTHUETRO_BAOOANH.Models.LOAIPHONGTRO>
+
+<p class="lead">CÁC LOẠI PHÒNG TRỌ</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SPtheoloaiphong", "PHONGTRO_60131724", new { id = item.MaLPT})" class="list-group-item">
+            @item.TenLPT
+        </a>
+    }
+</div>
+
+@*@Html.ActionLink("Tìm kiếm phòng", "../PHONGTRO_60131724/KQTimKiem", new { @class = "a" })*@
+
+

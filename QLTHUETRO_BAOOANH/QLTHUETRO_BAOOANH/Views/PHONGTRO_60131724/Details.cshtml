@@ -1,0 +1,91 @@
+﻿@model QLTHUETRO_BAOOANH.Models.PHONGTRO
+
+<style>
+    .dathang {
+        background-color: rgb(33,37,41); /* xám */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        float: right;
+    }
+
+        .dathang:hover {
+            text-decoration: none;
+            color: #ffc800;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+</style>
+
+@{
+    ViewBag.Title = "Chi tiết phòng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<h2 style="color:rgb(128 128 128);text-align:center;margin-bottom:18px">THÔNG TIN CHI TIẾT PHÒNG TRỌ</h2>
+
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <div>
+                <img alt="@Model.TiecIch" src="~/images/phongtro/@Model.AnhPT" style="width:400px;height:400px;border:1px solid rgba(0,0,0,0.19)" />
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <div style="display:flex">
+                <b style="font-size:20px">Mã phòng trọ:</b>
+                &nbsp;
+                <p style="text-align: justify; font-size: 17px"> @Model.MaPT</p>
+            </div>
+            <div style="display:flex">
+                <b style="font-size:20px">Diện tích:</b>
+                &nbsp;
+                <p style="text-align: justify; font-size: 17px"> @Model.DienTich</p>
+            </div>
+            <div style="display:flex">
+                <b style="font-size:20px">Tiện ích:</b>
+                &nbsp;
+                <p style="text-align:justify; font-size: 17px">@Model.TiecIch</p>
+
+            </div>
+            <div style="display:flex">
+                <b style="font-size:20px">Loại phòng:</b>
+                &nbsp;
+                <p style="text-align:justify; font-size: 17px">@Model.LOAIPHONGTRO.TenLPT</p>
+            </div>
+            <div style="display:flex">
+                <b style="font-size:20px">Trạng thái:</b>
+                &nbsp;
+                <p style="text-align:justify; font-size: 17px">@Model.TrangThai</p>
+            </div>
+            <div style="display:flex">
+                <b style="font-size:20px">Ngày đăng tải:</b>
+                &nbsp;
+                <p style="text-align:justify; font-size: 17px"> @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) </p>
+            </div>
+            <div style="margin-top: 10px">
+                <b style="font-size: 20px; color: #ffc800; font-size: 20px;">
+                    Giá thuê: @string.Format("{0:0,0}", Model.DonGia) VND
+                </b>
+            </div>
+            <div style="margin-top:40px">
+                <a href="@Url.Action("datphong", "DatPhong", new { maPT = @Model.MaPT})" class="dathang">
+                    @*<a href="@Html.ActionLink("Đặt phòng ngay", "OrderNow","ShoppingCart", new { id = Model.MaPT }, null)" class="dathang">*@
+                        <b>ĐẶT PHÒNG NGAY</b>
+                    </a>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-12 col-md-12">
+            <p style="margin-top:5px;margin-bottom:100px">
+                <br />
+                |
+                @Html.ActionLink("Trở về xem phòng", "danhsach")
+            </p>
+        </div>

@@ -1,0 +1,73 @@
+﻿@model QLTHUETRO_BAOOANH.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Thông tin khách chi tiết";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    string gtinh = "";
+}
+
+<center><h2>THÔNG TIN KHÁCH THUÊ CHI TIẾT</h2></center>
+
+<div class="col-sm-6 col-lg-6 col-md-6">
+    <div>
+        <img alt="@Model.MaKH" src="~/images/people/@Model.AnhKH" style="margin-left:60px;width:500px;height:585px;border:1px solid rgba(0,0,0,0.19)" />
+    </div>
+</div>
+<div class="col-sm-6 col-lg-6 col-md-6">
+    <table border="1" cellpadding="0" cellspacing="0" style="font-size: 14px; margin-left: 40px">
+        <tr>
+            <td style="padding: 20px;font-size:18px">
+                <table cellpadding="2" cellspacing="3">
+                    <tr>
+                        <td style="width:170px">Mã khách thuê:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.MaKH)</td>
+                    </tr>
+                    <tr>
+                        <td>Họ tên khách thuê:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.HoTen)</td>
+                    </tr>
+                    <tr>
+                        <td>Giới tính:</td>
+                        <td style="padding-left: 10px;">
+                            @{if (Model.GioiTinh == true)
+                                { gtinh = "Nam"; }
+                                else
+                                { gtinh = "Nữ"; }
+                            }
+                            @gtinh
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td style="padding-left: 10px;">@string.Format("{0:dd/MM/yyyy}", Model.NgaySinh)</td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.DiachiKH)</td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.DienThoaiKH)</td>
+                    </tr>
+                    <tr>
+                        <td>Số CMND:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.CMND)</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>Ở phòng trọ:</td>
+                        <td style="padding-left: 10px;">@Html.DisplayFor(model => model.PHONGTRO.MaPT)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <p style="margin-top: 30px; margin-left: 50px">
+        @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MaKH }) |
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>
+
